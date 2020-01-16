@@ -1,3 +1,5 @@
+> **Notes**: There are a few embedded diagrams in this document which can't be rendered or previewed on Github directly. Please download and read this document on Google Chrome or any text editor supporting Markdown format.
+
 # Data Store Design
 
 The CT Data Store (CTDS) is a collection of .NET assemblies containing functions to generate and maintain a data repository that provides you with access to consolidated CT7 timetable data, periodically updated from the source timetable databases. The repository is typically used for reporting and publishing purposes, and client applications should consider it read-only.
