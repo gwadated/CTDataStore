@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataStoreConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <source>
+    <timetables>
+
+      <timetable>
+        <connectionString>Server=[HOST NAME HERE]; Database=[DB NAME HERE]; Trusted_Connection=True</connectionString>
+      </timetable>
+      
+    </timetables>
+  </source>
+
+  <destination>
+
+    <adminDatabase>
+      <connectionString>Server=[HOST NAME HERE]; Database=CTDS_ADMIN; Trusted_Connection=True</connectionString>
+    </adminDatabase>
+    
+    <publicDatabase>
+      <connectionString>Server=[HOST NAME HERE]; Database=CTDS_PUBLIC; Trusted_Connection=True</connectionString>
+    </publicDatabase>
+    
+  </destination>
+  
+  <commandTimeouts sourceTimetables="60" adminDatabase="240" publicDatabase="480" />
+  <disableBulkInsertOptimisations>false</disableBulkInsertOptimisations>
+  <forceRebuild>false</forceRebuild>
+  <maxDegreeOfParallelism>1</maxDegreeOfParallelism>
+  <truncatePublicStaging>false</truncatePublicStaging>
+  
+
+  <pipelines>
+    <adminStaging singleThreaded="false" />
+    <adminHistory singleThreaded="false" />
+    <adminDiff singleThreaded="false" />
+    <publicConsolidation singleThreaded="false" />
+    <publicStaging singleThreaded="false" />
+    <publicTransformation singleThreaded="false" />
+    <publicTempUpsert singleThreaded="false" />
+  </pipelines>
+  
+  <consolidation enabled="true">
+    <entry entity="room" column="unique_name" />
+    <entry entity="staff" column="unique_name" />
+    <entry entity="course" column="name" />
+    <entry entity="module" column="unique_name" />
+    <entry entity="group" column="unique_name" />
+    <entry entity="student" column="unique_name" />
+    <entry entity="equip" column="unique_name" />
+    <entry entity="team" column="unique_name" />
+    <entry entity="faculty" column="name" />
+    <entry entity="dept" column="name" />
+    <entry entity="fixture" column="name" />
+    <entry entity="layout" column="name" />
+    <entry entity="site" column="name" />
+    <entry entity="eventCat" column="name" />
+    <entry entity="supervisor" column="name" />
+    <entry entity="staffCat" column="name" />
+    <entry entity="user" column="name" />        
+  </consolidation>
+
+</dataStoreConfiguration>

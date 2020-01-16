@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85554E79-5926-4C62-B924-85D3C6777C2E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Celcat.Verto.DataStore.Common</RootNamespace>
+    <AssemblyName>Celcat.Verto.DataStore.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CelcatVerto.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>SA0001</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CelcatVerto.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>SA0001</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Boo.Lang, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boo.0.9.4\lib\Boo.Lang.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Boo.Lang.Compiler, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boo-Compiler.0.9.4\lib\Boo.Lang.Compiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Boo.Lang.Parser, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boo-Compiler.0.9.4\lib\Boo.Lang.Parser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers, Version=3.4.1.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileHelpers.3.4.1\lib\net45\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.DSL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoDSL.1.0.0\lib\Rhino.DSL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rhino.Etl.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rhino-Etl.1.4.0.0\lib\net35\Rhino.Etl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Etl.Dsl, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rhino-Etl.1.4.0.0\lib\net35\Rhino.Etl.Dsl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Columns\ColumnConstants.cs" />
+    <Compile Include="Columns\ColumnUtils.cs" />
+    <Compile Include="Columns\Ct7AcademicYearColumn.cs" />
+    <Compile Include="Columns\Ct7BoolColumn.cs" />
+    <Compile Include="Columns\Ct7DescriptionColumn.cs" />
+    <Compile Include="Columns\Ct7EmailColumn.cs" />
+    <Compile Include="Columns\Ct7NameColumn.cs" />
+    <Compile Include="Columns\Ct7NotesColumn.cs" />
+    <Compile Include="Columns\Ct7SexColumn.cs" />
+    <Compile Include="Columns\Ct7TelephoneColumn.cs" />
+    <Compile Include="Columns\Ct7UniqueNameColumn.cs" />
+    <Compile Include="Columns\Ct7WebColumn.cs" />
+    <Compile Include="Columns\Ct7WeeksColumn.cs" />
+    <Compile Include="Columns\Ct7SchedulableColumn.cs" />
+    <Compile Include="Columns\NotNullStringColumn.cs" />
+    <Compile Include="Columns\NullStringColumn.cs" />
+    <Compile Include="Configuration\AdminDatabaseConfiguration.cs" />
+    <Compile Include="Configuration\Destination.cs" />
+    <Compile Include="Configuration\PipelineElements\AdminDiff.cs" />
+    <Compile Include="Configuration\PipelineElements\AdminHistory.cs" />
+    <Compile Include="Configuration\PipelineElements\AdminStaging.cs" />
+    <Compile Include="Configuration\CommandTimeout.cs" />
+    <Compile Include="Configuration\ConfigurationFile.cs" />
+    <Compile Include="Configuration\ConnectionStrings.cs" />
+    <Compile Include="Configuration\ConsolidationEntry.cs" />
+    <Compile Include="Configuration\ConsolidationParams.cs" />
+    <Compile Include="Configuration\DataStoreConfiguration.cs" />
+    <Compile Include="Configuration\PipelineElements\PublicConsolidation.cs" />
+    <Compile Include="Configuration\PipelineElements\Pipelines.cs" />
+    <Compile Include="Configuration\PipelineElements\PublicStaging.cs" />
+    <Compile Include="Configuration\PipelineElements\PublicTempUpsert.cs" />
+    <Compile Include="Configuration\PipelineElements\PublicTransformation.cs" />
+    <Compile Include="Configuration\PublicDatabaseConfiguration.cs" />
+    <Compile Include="Configuration\Source.cs" />
+    <Compile Include="Configuration\SourceTimetableConfiguration.cs" />
+    <Compile Include="Consolidation\ConsolidationType.cs" />
+    <Compile Include="Consolidation\ConsolidationTypeUtils.cs" />
+    <Compile Include="Entities\Ct7Entity.cs" />
+    <Compile Include="Entities\Ct7EntityUtils.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\EntityUtils.cs" />
+    <Compile Include="Progress\ProcessingSection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RhinoDerivatives\SqlBulkInsertOperationUsingExistingConnection.cs" />
+    <Compile Include="RowCountAndDuration.cs" />
+    <Compile Include="Schemas\SchemaBase.cs" />
+    <Compile Include="Progress\VertoProgressEventArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Configuration\DataStoreConfig.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Celcat.Verto.Common\Celcat.Verto.Common.csproj">
+      <Project>{D7AF5D3C-8CCA-440A-9F42-591021ECC695}</Project>
+      <Name>Celcat.Verto.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Celcat.Verto.TableBuilder\Celcat.Verto.TableBuilder.csproj">
+      <Project>{4E95931B-E43F-478C-A794-F960A40DF679}</Project>
+      <Name>Celcat.Verto.TableBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

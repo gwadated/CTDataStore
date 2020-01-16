@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E32EF40B-5A49-4B13-98AA-7A0CA7E10E79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Celcat.Verto.DataStore.Admin</RootNamespace>
+    <AssemblyName>Celcat.Verto.DataStore.Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CelcatVerto.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>SA0001</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\CelcatVerto.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>SA0001</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Boo.Lang, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boo.0.9.4\lib\Boo.Lang.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Boo.Lang.Compiler, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boo-Compiler.0.9.4\lib\Boo.Lang.Compiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Boo.Lang.Parser, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Boo-Compiler.0.9.4\lib\Boo.Lang.Parser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers, Version=3.4.1.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileHelpers.3.4.1\lib\net45\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.DSL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\packages\RhinoDSL.1.0.0\lib\Rhino.DSL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rhino.Etl.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rhino-Etl.1.4.0.0\lib\net35\Rhino.Etl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Etl.Dsl, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rhino-Etl.1.4.0.0\lib\net35\Rhino.Etl.Dsl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Admin\SourceTimetableRegistration.cs" />
+    <Compile Include="Control\Mutex\ControlMutex.cs" />
+    <Compile Include="Control\Mutex\ControlMutexResult.cs" />
+    <Compile Include="Control\Mutex\ControlMutexStatus.cs" />
+    <Compile Include="Federation\ConsolidationDefinition.cs" />
+    <Compile Include="Federation\ConsolidationTablesBuilder.cs" />
+    <Compile Include="Federation\FederationDefinition.cs" />
+    <Compile Include="Federation\FederationSchema.cs" />
+    <Compile Include="Federation\FederationTablesBuilder.cs" />
+    <Compile Include="Federation\FixUpHistoryIds\FederateHistoryTables.cs" />
+    <Compile Include="Federation\Tables\ConsolidationConfigTable.cs" />
+    <Compile Include="Federation\Tables\ConsolidationDetailTable.cs" />
+    <Compile Include="Federation\Tables\ConsolidationTable.cs" />
+    <Compile Include="Federation\Tables\FederationTable.cs" />
+    <Compile Include="Control\ControlTablesBuilder.cs" />
+    <Compile Include="Admin\AdminDatabase.cs" />
+    <Compile Include="Control\ControlSchema.cs" />
+    <Compile Include="History\HistorySchema.cs" />
+    <Compile Include="History\HistoryTablesBuilder.cs" />
+    <Compile Include="History\HistoryTablesExistence.cs" />
+    <Compile Include="History\RhinoOperations\GetHistoryDiffOperation.cs" />
+    <Compile Include="History\RhinoOperations\GetHistoryOperationBasic.cs" />
+    <Compile Include="History\RhinoOperations\HistoryEtlProcessDiff.cs" />
+    <Compile Include="History\RhinoOperations\HistoryEtlProcessBasic.cs" />
+    <Compile Include="History\RhinoOperations\HistoryInsertOperation.cs" />
+    <Compile Include="History\SourceTimetableAndRowCount.cs" />
+    <Compile Include="History\StageTableDiffer.cs" />
+    <Compile Include="Models\SourceTimetableData.cs" />
+    <Compile Include="Models\SourceTimetableRecord.cs" />
+    <Compile Include="Control\Tables\ControlConfigTable.cs" />
+    <Compile Include="Control\Tables\ControlLogTable.cs" />
+    <Compile Include="Control\Tables\ControlSourceTable.cs" />
+    <Compile Include="Control\Tables\ControlTable.cs" />
+    <Compile Include="SourceTimetables\SourceValidityCheck.cs" />
+    <Compile Include="Admin\AdminDatabaseCreation.cs" />
+    <Compile Include="Admin\AdminDatabaseValidityCheck.cs" />
+    <Compile Include="SourceTimetables\SourceCompatibilityReport.cs" />
+    <Compile Include="SourceTimetables\SourceTimetable.cs" />
+    <Compile Include="Staging\CheckingIntegrity\StageIntegrityCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ActivityIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\AuditReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\BookingIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\CourseIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\DeptIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\EquipIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\EventCatIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ExamIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ExamSessionIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ExamSlotIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ExceptionIdReferenceColumn.cs" />
+    <Compile Include="Staging\ColumnRefChecks\FacultyIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\FixtureIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\GroupIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\MarkIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ModuleIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\OriginReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\ResourceIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\RoomIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\RoomLayoutIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\SiteIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\SpanIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\StaffReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\StaffCatIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\StaffIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\StudentIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\SupervisorIdReferenceCheck.cs" />
+    <Compile Include="Staging\ColumnRefChecks\TeamIdReferenceCheck.cs" />
+    <Compile Include="Staging\ConsolidationKeyCheck.cs" />
+    <Compile Include="Staging\RhinoOperations\GetTimetableDataOperation.cs" />
+    <Compile Include="Staging\RhinoOperations\StagingBulkInsertOperation.cs" />
+    <Compile Include="Staging\RhinoOperations\StagingEtlProcess.cs" />
+    <Compile Include="Staging\StagingSchema.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Staging\ColumnRefChecks\EventIdReferenceCheck.cs" />
+    <Compile Include="Staging\Tables\Attendance\RegisterMarkTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventCatTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventEquipTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventFixtureReqTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventGroupTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventLayoutReqTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventModuleTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventRoomTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventStaffCatReqTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventStaffTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventStudentTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventTable.cs" />
+    <Compile Include="Staging\Tables\Events\EventTeamTable.cs" />
+    <Compile Include="Staging\Tables\Exams\ExamEventTable.cs" />
+    <Compile Include="Staging\Tables\Exams\ExamSessionTable.cs" />
+    <Compile Include="Staging\Tables\Exams\ExamSlotTable.cs" />
+    <Compile Include="Staging\Tables\Exams\ExamTable.cs" />
+    <Compile Include="Staging\Tables\Exams\InvigilationTable.cs" />
+    <Compile Include="Staging\Tables\Exams\ReservedSeatingTable.cs" />
+    <Compile Include="Staging\Tables\Exams\SeatingTable.cs" />
+    <Compile Include="Staging\Tables\GroupMembership\FlatGroupSubGroupTable.cs" />
+    <Compile Include="Staging\Tables\GroupMembership\GroupStudentTable.cs" />
+    <Compile Include="Staging\Tables\GroupMembership\GroupSubgroupTable.cs" />
+    <Compile Include="Staging\Tables\Misc\OriginTable.cs" />
+    <Compile Include="Staging\Tables\Misc\SpanTable.cs" />
+    <Compile Include="Staging\Tables\Misc\UserTable.cs" />
+    <Compile Include="Staging\Tables\Misc\WeekSchemeTable.cs" />
+    <Compile Include="Staging\Tables\Resources\FacultyTable.cs" />
+    <Compile Include="Staging\Tables\Resources\FixtureTable.cs" />
+    <Compile Include="Staging\Tables\Resources\GroupFpTable.cs" />
+    <Compile Include="Staging\Tables\Resources\GroupTable.cs" />
+    <Compile Include="Staging\Tables\Resources\LayoutTable.cs" />
+    <Compile Include="Staging\Tables\Resources\ModuleClusterTable.cs" />
+    <Compile Include="Staging\Tables\Resources\ModuleFpTable.cs" />
+    <Compile Include="Staging\Tables\Resources\ModuleTable.cs" />
+    <Compile Include="Staging\Tables\Resources\RoomInventoryTable.cs" />
+    <Compile Include="Staging\Tables\Resources\RoomLayoutTable.cs" />
+    <Compile Include="Staging\Tables\Resources\SiteTable.cs" />
+    <Compile Include="Staging\Tables\Resources\SiteTimeTable.cs" />
+    <Compile Include="Staging\Tables\Resources\StaffCatTable.cs" />
+    <Compile Include="Staging\Tables\Resources\StaffStaffCatTable.cs" />
+    <Compile Include="Staging\Tables\Resources\StaffTable.cs" />
+    <Compile Include="Staging\Tables\Resources\StaffTeamTable.cs" />
+    <Compile Include="Staging\Tables\Resources\StudentSupervisorTable.cs" />
+    <Compile Include="Staging\Tables\Resources\StudentTable.cs" />
+    <Compile Include="Staging\Tables\Resources\SupervisorTable.cs" />
+    <Compile Include="Staging\Tables\Resources\TeamTable.cs" />
+    <Compile Include="Staging\Tables\StagingTablesBuilder.cs" />
+    <Compile Include="Resources\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Staging\Tables\Attendance\ActivityTable.cs" />
+    <Compile Include="Staging\Tables\Attendance\NotificationTable.cs" />
+    <Compile Include="Staging\Tables\Attendance\AttendTable.cs" />
+    <Compile Include="Staging\Tables\Attendance\AttendTimeTable.cs" />
+    <Compile Include="Staging\Tables\Attendance\AuxMarkTable.cs" />
+    <Compile Include="Staging\Tables\Attendance\AuxTimeTable.cs" />
+    <Compile Include="Staging\Tables\Attendance\MarkTable.cs" />
+    <Compile Include="Staging\Tables\Bookings\BookingParticipantTable.cs" />
+    <Compile Include="Staging\Tables\Bookings\BookingRequirementTable.cs" />
+    <Compile Include="Staging\Tables\Bookings\BookingSlotTable.cs" />
+    <Compile Include="Staging\Tables\Bookings\BookingTable.cs" />
+    <Compile Include="Staging\Tables\Misc\ConfigTable.cs" />
+    <Compile Include="Staging\Tables\Resources\CourseModuleTable.cs" />
+    <Compile Include="Staging\Tables\Resources\CourseTable.cs" />
+    <Compile Include="Staging\Tables\Resources\DeptTable.cs" />
+    <Compile Include="Staging\Tables\Resources\EquipTable.cs" />
+    <Compile Include="Staging\Tables\Resources\RoomTable.cs" />
+    <Compile Include="Staging\Tables\StagingTablesExistence.cs" />
+    <Compile Include="Staging\Tables\V7StagingTable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Celcat.Verto.Common\Celcat.Verto.Common.csproj">
+      <Project>{d7af5d3c-8cca-440a-9f42-591021ecc695}</Project>
+      <Name>Celcat.Verto.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Celcat.Verto.DataStore.Common\Celcat.Verto.DataStore.Common.csproj">
+      <Project>{85554e79-5926-4c62-b924-85d3c6777c2e}</Project>
+      <Name>Celcat.Verto.DataStore.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Celcat.Verto.TableBuilder\Celcat.Verto.TableBuilder.csproj">
+      <Project>{4e95931b-e43f-478c-a794-f960a40df679}</Project>
+      <Name>Celcat.Verto.TableBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

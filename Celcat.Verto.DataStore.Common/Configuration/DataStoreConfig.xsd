@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xsd:element name="dataStoreConfiguration">
+    <xsd:complexType>
+      <xsd:all>
+
+
+        <xsd:element name="source">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="timetables">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" name="timetable">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="connectionString" type="xsd:string" />
+                        </xsd:sequence>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name="destination">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="adminDatabase">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="connectionString" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="publicDatabase">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="connectionString" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+
+
+        <xsd:element name="commandTimeouts">
+          <xsd:complexType>
+            <xsd:attribute name="sourceTimetables" type="xsd:unsignedByte" use="required" />
+            <xsd:attribute name="adminDatabase" type="xsd:unsignedByte" use="required" />
+            <xsd:attribute name="publicDatabase" type="xsd:unsignedByte" use="required" />
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name="consolidation" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="entry">
+                <xsd:complexType>
+                  
+                  <xsd:attribute name="entity" use="required">
+
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="room" />
+                        <xsd:enumeration value="staff" />
+                        <xsd:enumeration value="student" />
+                        <xsd:enumeration value="module" />
+                        <xsd:enumeration value="group" />
+                        <xsd:enumeration value="course" />
+                        <xsd:enumeration value="dept" />
+                        <xsd:enumeration value="eventcat" />
+                        <xsd:enumeration value="faculty" />
+                        <xsd:enumeration value="fixture" />
+                        <xsd:enumeration value="layout" />
+                        <xsd:enumeration value="site" />
+                        <xsd:enumeration value="staffcat" />
+                        <xsd:enumeration value="supervisor" />
+                        <xsd:enumeration value="equip" />
+                        <xsd:enumeration value="user" />
+                        <xsd:enumeration value="team" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+
+                  </xsd:attribute>
+                  
+                  <xsd:attribute name="column" use="required">
+
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="name" />
+                        <xsd:enumeration value="unique_name" />
+                        <xsd:enumeration value="profile" />
+                        <xsd:enumeration value="email" />
+                        <xsd:enumeration value="custom1" />
+                        <xsd:enumeration value="custom2" />
+                        <xsd:enumeration value="custom3" />
+                        <xsd:enumeration value="lookup_id1" />
+                        <xsd:enumeration value="lookup_id2" />
+                        <xsd:enumeration value="lookup_id3" />
+                        <xsd:enumeration value="original_id" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+
+                  </xsd:attribute>
+                  
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="enabled" type="xsd:boolean" use="optional" default="true" />
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name="pipelines" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="adminStaging">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="adminHistory">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="adminDiff">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="publicConsolidation">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="publicStaging">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="publicTransformation">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="publicTempUpsert">
+                <xsd:complexType>
+                  <xsd:attribute name="singleThreaded" type="xsd:boolean" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        
+        <xsd:element name="disableBulkInsertOptimisations" type="xsd:boolean" />
+        <xsd:element name="forceRebuild" type="xsd:boolean" />
+        <xsd:element name="maxDegreeOfParallelism" type="xsd:unsignedByte" />
+          
+      </xsd:all>
+    </xsd:complexType>
+  </xsd:element>
+</xs:schema>
