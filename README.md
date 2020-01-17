@@ -1,5 +1,11 @@
-# CTDataStore
-Source code of the CELCAT Timetabler Data Store
+# CELCAT Data Store
+The CELCAT Data Store (CTDS) is a data repository that provides end-users with access to consolidated timetable data, periodically updated from the source timetable databases. The product deliverables include ETL (Extract-Transform-Load) processes that operate on specified source timetables to produce internal, user-facing and hybrid data stores in normalised and denormalised form.
+
+## Not a Warehouse
+
+CTDS is not a Data Warehouse; rather it can form part of a data warehouse. Our rationale is that the Business Intelligence requirements of a large college or university will require a warehouse drawing data from the HR system, the student MIS system, the timetable, etc. CELCAT timetable data is just a small part of the overall picture. CTDS will provide the access layer needed to feed into such a warehouse.
+
+This repository shares the source code of the application.
 
 ## Disclaimer
 
