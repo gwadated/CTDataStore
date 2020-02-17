@@ -1,8 +1,6 @@
 # Configuration and Execution
 
-The CTDataStore.exe program is used to maintain the Data Store. Specify your configuration in the **DataStoreConfig.xml** file and then execute the CTDataStore.exe to generate the data store. It may
-take a little while to initially create the data store, but subsequent operations should be much quicker
-(especially if little has changed in the source timetables).
+The CTDataStore.exe program is used to maintain the Data Store. Specify your configuration in the **DataStoreConfig.xml** file and then execute the CTDataStore.exe to generate the data store. It may take a little while to initially create the data store, but subsequent operations should be much quicker (especially if little has changed in the source timetables).
 
 A sample DataStoreConfig.xml file is shown below followed by a description of relevant sections:
 
@@ -14,27 +12,22 @@ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <source>
         <timetables>
             <timetable>
-                <connectionString>Server=PC8\SQLSVR2012; Database=MERCIA_2014_15;
-Trusted_Connection=True</connectionString>
+                <connectionString>Server=PC8\SQLSVR2012; Database=MERCIA_2014_15; Trusted_Connection=True</connectionString>
             </timetable>
             <timetable>
-                <connectionString>Server=PC8\SQLSVR2012; Database=MERCIA_2015_16;
-Trusted_Connection=True</connectionString>
+                <connectionString>Server=PC8\SQLSVR2012; Database=MERCIA_2015_16; Trusted_Connection=True</connectionString>
             </timetable>
         </timetables>
     </source>
     <destination>
         <adminDatabase>
-            <connectionString>Server=PC8\SQLSVR2012; Database=CTDS_ADMIN;
-Trusted_Connection=True</connectionString>
+            <connectionString>Server=PC8\SQLSVR2012; Database=CTDS_ADMIN; Trusted_Connection=True</connectionString>
         </adminDatabase>
         <publicDatabase>
-            <connectionString>Server=PC8\SQLSVR2012; Database=CTDS_PUBLIC;
-Trusted_Connection=True</connectionString>
+            <connectionString>Server=PC8\SQLSVR2012; Database=CTDS_PUBLIC; Trusted_Connection=True</connectionString>
         </publicDatabase>
     </destination>
-    <commandTimeouts sourceTimetables="60" adminDatabase="240"
-publicDatabase="480" />
+    <commandTimeouts sourceTimetables="60" adminDatabase="240" publicDatabase="480" />
     <forceRebuild>false</forceRebuild>
     <maxDegreeOfParallelism>4</maxDegreeOfParallelism>
     <pipelines>
@@ -83,10 +76,7 @@ The consolidation section describes how the various entity types are matched by 
 <entry entity="room" column="unique_name" />
 ```
 
-With this configuration specified, CTDS will automatically consolidate room records across multiple 
-timetables combining all room record with unique name “A1”, for example. If a particular entity type
-has no entry in this section then records of that type are not consolidated. There follows a list of
-entity types that may be included in the consolidation process:
+With this configuration specified, CTDS will automatically consolidate room records across multiple timetables combining all room record with unique name “A1”, for example. If a particular entity type has no entry in this section then records of that type are not consolidated. There follows a list of entity types that may be included in the consolidation process:
 
     room
     staff
@@ -108,8 +98,7 @@ entity types that may be included in the consolidation process:
 
 ## Pipelines
 
-The pipelines section is used to selectively enable/disable single threaded operation during specified
-phases of the process.
+The pipelines section is used to selectively enable/disable single threaded operation during specified phases of the process.
 
 ## Other
 Other items include:
@@ -122,8 +111,5 @@ Other items include:
 
 ## Logging
 
-The CTDataStore.exe.config file contains logging configuration. By default it stores a rolling log in the
-“logs” subfolder called “verto.txt” (Verto was the working name of the project). The default logging
-level is “WARN” but you can set it to ALL, DEBUG, INFO, WARN, ERROR, FATAL or OFF. Just open the
-CTDataStore.exe.config file in a text editor and make the necessary changes.
+The CTDataStore.exe.config file contains logging configuration. By default it stores a rolling log in the “logs” subfolder called “verto.txt” (Verto was the working name of the project). The default logging level is “WARN” but you can set it to ALL, DEBUG, INFO, WARN, ERROR, FATAL or OFF. Just open the CTDataStore.exe.config file in a text editor and make the necessary changes.
 
