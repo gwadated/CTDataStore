@@ -1,6 +1,5 @@
 on:
   push:
-    tags: releases/v*
     branches: [ master ]
 
 jobs:
@@ -22,19 +21,23 @@ jobs:
     
     - name: Upload archive
       uses: actions/upload-artifact@v2
-      with:
-        name: build      
+      with:      
         path: executable.zip
     
-#     - name: Create an empty Github Release
-#       id: create_release_post
-#       uses: actions/create-release@v1
-#       env:
-#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-#       with:
-#         tag_name: ${{ github.ref.tag }}
-#         release_name: Release ${{ github.ref.tag }}
-#         draft: false
-#         prerelease: false 
+    - name: Create a Github Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        draft: false
+        prerelease: false 
         
-#    - name: Upload binary asset
+    - name: Attach the archive to the Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: executable.zip
+        asset_content_type: application/zip      
