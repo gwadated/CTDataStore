@@ -18,7 +18,7 @@ jobs:
       run: msbuild -target:Restore -target:Rebuild -property:Configuration=Release -m
     
     - name: Archive Release
-      run: Get-ChildItem -Path CTDataStore\TestClient\bin\Release\* -File -Exclude *.pdb, *.dll.config | Compress-Archive -DestinationPath executable.zip
+      run: Get-ChildItem -Path TestClient\bin\Release\* -File -Exclude *.pdb, *.dll.config | Compress-Archive -DestinationPath executable.zip
     
 #     - name: Create an empty Github Release
 #       id: create_release_post
