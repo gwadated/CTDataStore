@@ -20,6 +20,12 @@ jobs:
     - name: Archive Release
       run: Get-ChildItem -Path TestClient\bin\Release\* -File -Exclude *.pdb, *.dll.config | Compress-Archive -DestinationPath executable.zip
     
+    - name: Upload archive
+      uses: actions/upload-artifact@v2
+      with:
+        name: build      
+        path: executable.zip
+    
 #     - name: Create an empty Github Release
 #       id: create_release_post
 #       uses: actions/create-release@v1
