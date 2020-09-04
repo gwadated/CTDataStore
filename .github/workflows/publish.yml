@@ -1,0 +1,31 @@
+on:
+  push:
+    tags: releases/v**
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Make and publish a Release build    
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.0.1
+      
+    - name: Build
+      run: msbuild -target:Restore -target:Rebuild -property:Configuration=Release -m
+    
+    - name: Create an empty Github Release
+      id: create_release_post
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false 
+        
+#    - name: Upload binary asset
