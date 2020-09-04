@@ -1,6 +1,6 @@
 on:
   push:
-    tags: releases/v**
+    tags: releases/v*
     branches: [ master ]
 
 jobs:
@@ -17,15 +17,22 @@ jobs:
     - name: Build
       run: msbuild -target:Restore -target:Rebuild -property:Configuration=Release -m
     
-    - name: Create an empty Github Release
-      id: create_release_post
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false 
+        directory: CTDataStore\CTDataStore\TestClient\bin\Release\
+        filename: executable.zip
+        exclusions: '*.pdb *.dll.config /Configuration'
+    
+#     - name: Create an empty Github Release
+#       id: create_release_post
+#       uses: actions/create-release@v1
+#       env:
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+#       with:
+#         tag_name: ${{ github.ref.tag }}
+#         release_name: Release ${{ github.ref.tag }}
+#         draft: false
+#         prerelease: false 
         
 #    - name: Upload binary asset
